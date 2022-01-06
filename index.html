@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanças</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Calculadora de Finanças</h1>
+    </header>
+    <section>
+        <div id="funcoes">
+            <div id="entrada">
+                <input type="number" name="inputEntrada" id="inputEntrada" placeholder="Entrada">
+                <input type="button" value="Adicionar" onclick="addEntrada()">
+                <select name="mostraEntradas" id="mostraEntradas" size="6" disabled>
+
+                </select>
+            </div>
+            <div id="saida">
+                <input type="number" name="inputSaida" id="inputSaida" placeholder="Saída">
+                <input type="button" value="Adicionar" onclick="addSaida()">
+                <select name="mostraSaidas" id="mostraSaidas" size="6" disabled>
+                
+                </select>
+            </div>
+        </div>
+        <div id="fechamento">
+            <div id="boxTotal">
+                <span>R$ 0,00</span>
+            </div>
+            <select name="mostraTotal" id="mostraTotal" size="6" disabled>
+
+            </select>
+        </div>
+    </section>
+    <footer>
+        <p>peruchi</p>
+    </footer>
+</body>
+<script src="script.js"></script>
+</html>

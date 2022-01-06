@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+::-webkit-scrollbar-track {
+    background-color: #4f4f4f;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    background: #444444;
+}
+::-webkit-scrollbar-thumb {
+    background: #000000;
+    border-radius: 3px;
+}
+
+* {
+    font-family: 'Abel', sans-serif;
+}
+
+body {
+    background: #222222;
+    margin: 0;
+    font-size: 15pt;
+    text-align: center;
+    color: #fff;
+}
+
+header {
+    color: #ffffff;
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+section {
+    background: #303030;
+    width: 520px;
+    border-radius: 10px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#funcoes {
+    display: flex;
+    justify-content: space-between;
+}
+
+#entrada, #saida {
+    width: 250px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    background: #3d3d3d;
+    color: #fff;
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    text-align: center;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    font-size: 15pt;
+}
+
+#entrada input[type="number"] {
+    box-shadow: -2px -2px #26bf00;
+}
+
+#saida input[type="number"] {
+    box-shadow: -2px -2px #e90000;
+}
+
+#entrada input[type="number"]:focus{
+    box-shadow: 2px 2px #26bf00;
+}
+
+#saida input[type="number"]:focus {
+    box-shadow: 2px 2px #e90000;
+}
+
+input[type="button"] {
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background: #727272;
+    font-weight: bold;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    font-size: 12pt;
+}
+
+#entrada input[type="button"]:hover {
+    background:#26bf00;
+}
+
+#saida input[type="button"]:hover {
+    background:#e90000;
+}
+
+input[type="button"]:active {
+    -webkit-transform:scale(0.90); /* Safari and Chrome */
+    -moz-transform:scale(0.90); /* Firefox */
+    -ms-transform:scale(0.90); /* IE 9 */
+    -o-transform:scale(0.90); /* Opera */
+    transform:scale(0.90);
+}
+
+select {
+    background: #3d3d3d;
+    color: #fff;
+    height: 100px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+    font-size: 11pt;
+} 
+
+#fechamento {
+    margin-top: 20px;
+    width: 520px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#boxTotal {
+    background: #0a0a0a;
+    width: 250px;
+    height: 100px;
+    border-radius: 5px;
+    line-height: 100px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+#boxTotal span {
+    font-size: 20pt;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+#fechamento select {
+    background: #0a0a0a;
+    width: 250px;
+}
