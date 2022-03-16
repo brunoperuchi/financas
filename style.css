@@ -80,11 +80,11 @@ section {
 }
 
 #inputValor {
-    box-shadow: -2px -2px #11c900;
+    box-shadow: -2px -2px #26bf00;
 }
 
 #inputValor:focus {
-    box-shadow: 2px 2px #11c900;
+    box-shadow: 2px 2px #26bf00;
 }
 
 .botao {
@@ -96,7 +96,7 @@ section {
 }
 
 .botao:hover {
-    background: #11c900;
+    background: #26bf00;
 }
 
 .botao:active {

@@ -39,15 +39,16 @@ function atualizaTotal(valor, tipo) {
     mostraTotal.insertBefore(option, mostraTotal.firstChild)
     financas.push(valor)
 
-    if (valor > 0) {
+    if (valorTotal > 0) {
         total.style.color = '#26bf00'
         boxTotal.style.boxShadow = '-2px -2px #26bf00'
-    } else if (valor < 0) {
+    } else if (valorTotal < 0) {
         total.style.color = '#e90000'
         boxTotal.style.boxShadow = '2px 2px #e90000'
-    } else if (valor == 0) {
+    } else if (valorTotal == 0) {
         total.style.color = '#fff'
         boxTotal.style.boxShadow = ''
     }
-    total.innerHTML = `R$ ${valor.toFixed(2).replace('.', ',').replace('-', '')}`
+    
+    total.innerHTML = `R$ ${valorTotal.toFixed(2).replace('.', ',').replace('-', '')}`
 }
