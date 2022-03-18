@@ -1,54 +1,63 @@
-let financas = []
-let qntFinancas = financas.length
-let valorTotal = 0
+const colorGreen = '#26bf00'
+const colorRed = '#e90000'
 
-function addValor() {
-    let inputValor = document.getElementById('inputValor')
-    let valorNum = Number(inputValor.value)
+let finances = []
+let valueTotal = 0
 
-    console.log(valorNum)
+function addFinance() {
+    let inputDate = document.getElementById('date-input')
+    let date = new Date(inputDate.value).toLocaleDateString('pt-BR', {timeZone: 'UTC'});
+    let inputValue = document.getElementById('value-input')
+    let valueNum = Number(inputValue.value)
 
-    if (!valorNum || valorNum == 0) {
+    inputDate.value = ''
+    inputValue.value = ''
+    inputValue.focus()
+
+    if (!valueNum || valueNum == 0) {
         window.alert('Valor inválido!')
-    } else if (valorNum > 0) {
-        atualizaTotal(valorNum, "+")
     } else {
-        atualizaTotal(valorNum, "-")
-    }
+        finances.push({
+            date: date,
+            value: valueNum
+        })
 
-    inputValor.value = ''
-    inputValor.focus()
+        valueTotal += valueNum
+
+        addShowTotal(date, valueNum)
+    }
 }
 
-function atualizaTotal(valor, tipo) {
-    let boxTotal = document.getElementById('boxTotal')
-    let total = document.querySelector('#boxTotal span')
-    let mostraTotal = document.getElementById('mostraTotal')
-
+function addShowTotal(date, valueNum) {   
     let option = document.createElement('option')
-    option.value = `${qntFinancas}`
-    option.text = `R$ ${valor.toFixed(2).replace('.', ',')}`
+    option.value = `${finances.length}`
+    option.text = `${date} - R$ ${convertCoin(valueNum)}`
+    option.style.color = valueNum > 0 ? colorGreen : colorRed
+    
+    let showTotal = document.getElementById('show-total')
+    showTotal.insertBefore(option, showTotal.firstChild)
 
-    if (tipo == '+') {
-        option.style.color = '#26bf00'
-    } else if (tipo == '-') {
-        option.style.color = '#e90000'
-    }
+    refreshBoxTotal()
+}
 
-    valorTotal += valor
-    mostraTotal.insertBefore(option, mostraTotal.firstChild)
-    financas.push(valor)
+function refreshBoxTotal() {
+    let boxTotal = document.getElementById('box-total')
+    let total = document.querySelector('#box-total span')
 
-    if (valorTotal > 0) {
-        total.style.color = '#26bf00'
-        boxTotal.style.boxShadow = '-2px -2px #26bf00'
-    } else if (valorTotal < 0) {
-        total.style.color = '#e90000'
-        boxTotal.style.boxShadow = '2px 2px #e90000'
-    } else if (valorTotal == 0) {
+    total.innerHTML = `R$ ${convertCoin(valueTotal)}`
+    
+    if (valueTotal > 0) {
+        total.style.color = colorGreen
+        boxTotal.style.boxShadow = `-2px -2px ${colorGreen}`
+    } else if (valueTotal < 0) {
+        total.style.color = colorRed
+        boxTotal.style.boxShadow = `2px 2px ${colorRed}`
+    } else if (valueTotal == 0) {
         total.style.color = '#fff'
         boxTotal.style.boxShadow = ''
     }
-    
-    total.innerHTML = `R$ ${valorTotal.toFixed(2).replace('.', ',').replace('-', '')}`
+}
+
+function convertCoin(value) {
+    return value.toFixed(2).replace('.', ',').replace('-', '')
 }

@@ -47,7 +47,7 @@ section {
     background: #313131;
     border-radius: 10px;
     width: 300px;
-    height: 300px;
+    height: 500px;
     margin: auto;
     padding: 20px;
     display: flex;
@@ -55,21 +55,11 @@ section {
     justify-content: space-between;
 }
 
-.borda {
+.border {
     border-radius: 5px;
 }
 
-#funcoes {
-    display: flex;
-    justify-content: space-between;
-    border-radius: 10px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-#inputValor {
+.input {
     background: #3d3d3d;
     color: #fff;
     border: none;
@@ -79,15 +69,15 @@ section {
     font-size: 15pt;
 }
 
-#inputValor {
+.input {
     box-shadow: -2px -2px #26bf00;
 }
 
-#inputValor:focus {
+.input:focus {
     box-shadow: 2px 2px #26bf00;
 }
 
-.botao {
+.button {
     height: 30px;
     border: none;
     background: #727272;
@@ -95,11 +85,11 @@ section {
     font-size: 12pt;
 }
 
-.botao:hover {
+.button:hover {
     background: #26bf00;
 }
 
-.botao:active {
+.button:active {
     -webkit-transform: scale(0.90);
     /* Safari and Chrome */
     -moz-transform: scale(0.90);
@@ -111,21 +101,17 @@ section {
     transform: scale(0.90);
 }
 
-#mostraTotal {
+#show-total {
     background: #0a0a0a;
     color: #fff;
-    height: 100px;
+    height: 250px;
     border: none;
     padding: 5px;
     outline: none;
     font-size: 11pt;
 }
 
-#fechamento {
-    margin-top: 20px;
-}
-
-#boxTotal {
+#box-total {
     display: flex;
     align-items: center;
     justify-content: center;

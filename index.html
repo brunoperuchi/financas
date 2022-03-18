@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finanças</title>
+    <title>Calculadora de Finanças</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,11 +14,12 @@
         <h1>Calculadora de Finanças</h1>
     </header>
     <section>
-        <input id="inputValor" class="borda" type="number" placeholder="Valor">
-        <input class="botao borda" type="button" value="Adicionar" onclick="addValor()">
-        <select id="mostraTotal" class="lista borda" size="6" disabled>
-      </select>
-        <div id="boxTotal" class="borda">
+        <input id="value-input" class="input border" type="number" placeholder="Valor">
+        <input id="date-input" class="input border" type="date">
+        <input class="button border" type="button" value="Adicionar" onclick="addFinance()">
+        <select id="show-total" class="border" size="6" disabled>
+        </select>
+        <div id="box-total" class="border">
             <span>R$ 0,00</span>
         </div>
     </section>
