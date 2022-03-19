@@ -14,11 +14,19 @@
         <h1>Calculadora de Finanças</h1>
     </header>
     <section>
-        <input id="value-input" class="input border" type="number" placeholder="Valor">
-        <input id="date-input" class="input border" type="date">
+        <div id="finance-data">
+            <input id="value-input" class="input border" type="number" placeholder="Valor">
+            <input id="date-input" class="input border" type="date">
+            <div id="add-tag">
+                <input id="tag-input" class="input border" type="text" placeholder="Novo Marcador">
+                <input class="button border" type="button" value="+" onclick="addTag()">
+            </div>
+            <select id="tag-select" class="input border" blank="Selecionar Marcador"></select>
+        </div>
         <input class="button border" type="button" value="Adicionar" onclick="addFinance()">
-        <select id="show-total" class="border" size="6" disabled>
-        </select>
+
+        <select id="show-total" class="border" size="6" disabled></select>
+
         <div id="box-total" class="border">
             <span>R$ 0,00</span>
         </div>
