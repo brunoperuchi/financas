@@ -6,11 +6,15 @@ let tags = []
 
 function addTag() {
     let inputTag = document.getElementById('tag-input')
-    let tagName = inputTag.value
+    let tagName = inputTag.value.toUpperCase()
     
-    tags.push(tagName)
-
-    refreshTagSelect()
+    if (tags.includes(tagName)) {
+        window.alert('Marcador já cadastrado!')
+    } else {
+        tags.push(tagName)
+    
+        refreshTagSelect()
+    }
 
     inputTag.value = ''
     inputTag.focus()
