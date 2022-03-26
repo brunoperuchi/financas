@@ -4,7 +4,7 @@ const colorRed = '#e90000'
 let finances = []
 let tags = []
 
-function addTag() {
+const addTag = () => {
     const inputTag = document.getElementById('tag-input')
 
     const tagName = inputTag.value.toUpperCase()
@@ -21,7 +21,7 @@ function addTag() {
     inputTag.focus()
 }
 
-function refreshTagSelect() {
+const refreshTagSelect = () => {
     const tagSelect = document.getElementById('tag-select')
 
     tagSelect.innerHTML = ''
@@ -38,7 +38,7 @@ function refreshTagSelect() {
     })
 }
 
-function addFinance() {
+const addFinance = () => {
     const inputDate = document.getElementById('date-input')
     const inputValue = document.getElementById('value-input')
     const tagSelect = document.getElementById('tag-select')
@@ -63,7 +63,7 @@ function addFinance() {
     inputValue.focus()
 }
 
-function refreshShowAll() {
+const refreshShowAll = () => {
     const showTotal = document.getElementById('show-total')
     showTotal.innerHTML = ''
 
@@ -78,7 +78,7 @@ function refreshShowAll() {
 
         const option = document.createElement('option')
         option.value = `${index}`
-        option.text = `${convertDate(finance.date)} - R$ ${convertCoin(value)} - ${finance.tag}`
+        option.text = `${convertDate(finance.date)} - ${convertCoin(value)} - ${finance.tag}`
         option.style.color = value > 0 ? colorGreen : colorRed
         
         showTotal.insertBefore(option, showTotal.firstChild)
@@ -87,10 +87,10 @@ function refreshShowAll() {
     refreshBoxTotal(valueTotal)
 }
 
-function refreshBoxTotal(value) {
+const refreshBoxTotal = (value) => {
     const total = document.querySelector('#box-total span')
     
-    total.innerHTML = `R$ ${convertCoin(value)}`
+    total.innerHTML = convertCoin(value)
     
     const totalStyle = total.style
     const boxTotalStyle = document.getElementById('box-total').style
@@ -108,18 +108,18 @@ function refreshBoxTotal(value) {
     }
 }
 
-function convertDate(date) {
+const convertDate = (date) =>  {
     return new Date(date).toLocaleDateString('pt-BR', {timeZone: 'UTC'});
 }
 
-function convertCoin(value) {
-    return value.toFixed(2).replace('.', ',').replace('-', '')
+const convertCoin = (value) =>  {
+    return `R$ ${value.toFixed(2).replace('.', ',')}`
 }
 
-function ascendingOrderDate(a, b) {
+const ascendingOrderDate = (a, b) =>  {
     return new Date(a.date) - new Date(b.date);
 }
 
-function descendingOrderDate(a, b) {
+const descendingOrderDate = (a, b) =>  {
     return new Date(b.date) - new Date(a.date);
 }
