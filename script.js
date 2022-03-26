@@ -1,3 +1,14 @@
+const financeData = document.getElementById('finance-data')
+    
+financeData.addEventListener('keyup', (event) => {
+    // Enter key
+    if (event.keyCode === 13) {
+        event.preventDefault()
+
+        addFinance()
+    }
+})
+
 const colorGreen = '#26bf00'
 const colorRed = '#e90000'
 
@@ -6,7 +17,7 @@ let tags = []
 
 const addTag = () => {
     const inputTag = document.getElementById('tag-input')
-
+    const inputValue = document.getElementById('value-input')
     const tagName = inputTag.value.toUpperCase()
     
     if (tags.includes(tagName)) {
@@ -14,14 +25,14 @@ const addTag = () => {
     } else {
         tags.push(tagName)
     
-        refreshTagSelect()
+        refreshTagSelect(tagName)
     }
-
+    
     inputTag.value = ''
-    inputTag.focus()
+    inputValue.focus()
 }
 
-const refreshTagSelect = () => {
+const refreshTagSelect = (tagAdded) => {
     const tagSelect = document.getElementById('tag-select')
 
     tagSelect.innerHTML = ''
@@ -32,6 +43,10 @@ const refreshTagSelect = () => {
         let option = document.createElement('option')
         option.value = `${index}`
         option.text = `${tag}`
+
+        if (tag === tagAdded) {
+            option.setAttribute('selected', true);
+        }
         
         lastChild = tagSelect.lastChild
         tagSelect.appendChild(option)
