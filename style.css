@@ -15,7 +15,6 @@
 
 * {
     font-family: 'Abel', sans-serif;
-    -webkit-transition: 0.2s;
     transition: 0.2s;
 }
 
@@ -39,7 +38,7 @@ section {
     padding: 15px;
     display: grid;
     row-gap: 10px;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 5fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 6fr 3fr;
 }
 
 .border {

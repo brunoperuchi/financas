@@ -1,6 +1,4 @@
-const financeData = document.getElementById('finance-data')
-    
-financeData.addEventListener('keyup', (event) => {
+document.body.addEventListener('keyup', (event) => {
     // Enter key
     if (event.keyCode === 13) {
         event.preventDefault()
@@ -17,18 +15,21 @@ let tags = []
 
 const addTag = () => {
     const inputTag = document.getElementById('tag-input')
-    const inputValue = document.getElementById('value-input')
     const tagName = inputTag.value.toUpperCase()
     
-    if (tags.includes(tagName)) {
+    if (!inputTag.value) {
+        window.alert('Marcador inválido!')
+    } else if (tags.includes(tagName)) {
         window.alert('Marcador já cadastrado!')
     } else {
         tags.push(tagName)
-    
+        
         refreshTagSelect(tagName)
     }
     
     inputTag.value = ''
+
+    const inputValue = document.getElementById('value-input')
     inputValue.focus()
 }
 
@@ -124,7 +125,11 @@ const refreshBoxTotal = (value) => {
 }
 
 const convertDate = (date) =>  {
-    return new Date(date).toLocaleDateString('pt-BR', {timeZone: 'UTC'});
+    if (!date) {
+        return "00/00/0000"
+    } else {
+        return new Date(date).toLocaleDateString('pt-BR', {timeZone: 'UTC'});
+    }
 }
 
 const convertCoin = (value) =>  {
