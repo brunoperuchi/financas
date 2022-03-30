@@ -17,7 +17,7 @@ const addTag = () => {
     const inputTag = document.getElementById('tag-input')
     const tagName = inputTag.value.toUpperCase()
     
-    if (!inputTag.value) {
+    if (!inputTag.value.trim()) {
         window.alert('Marcador inválido!')
     } else if (tags.includes(tagName)) {
         window.alert('Marcador já cadastrado!')
@@ -61,15 +61,18 @@ const addFinance = () => {
 
     
     const valueNum = Number(inputValue.value)
-    const tag = tagSelect.options[tagSelect.selectedIndex].text
 
     if (!valueNum || valueNum == 0) {
         window.alert('Valor inválido!')
+    } else if (!inputDate.value) {
+        window.alert('Data inválida!')
+    } else if (!tagSelect.value) {
+        window.alert('Marcador inválido!')
     } else {
         finances.push({
-            date: inputDate.value,
             value: valueNum,
-            tag: tag
+            date: inputDate.value,
+            tag: tagSelect.options[tagSelect.selectedIndex].text
         })
         refreshShowAll()
     }
