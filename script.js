@@ -1,17 +1,16 @@
-document.body.addEventListener('keyup', (event) => {
-    // Enter key
-    if (event.keyCode === 13) {
-        event.preventDefault()
-
-        addFinance()
-    }
-})
-
-const colorGreen = '#26bf00'
-const colorRed = '#e90000'
-
+// Global variables
 let finances = []
 let tags = []
+
+const enterKey = () => {
+    document.body.addEventListener('keyup', (event) => {
+        if (event.keyCode === 13) {
+            event.preventDefault()
+    
+            addFinance()
+        }
+    })
+}
 
 const addTag = () => {
     const inputTag = document.getElementById('tag-input')
@@ -59,7 +58,6 @@ const addFinance = () => {
     const inputValue = document.getElementById('value-input')
     const tagSelect = document.getElementById('tag-select')
 
-    
     const valueNum = Number(inputValue.value)
 
     if (!valueNum || valueNum == 0) {
@@ -98,7 +96,7 @@ const refreshShowAll = () => {
         const option = document.createElement('option')
         option.value = `${index}`
         option.text = `${convertDate(finance.date)} - ${convertCoin(value)} - ${finance.tag}`
-        option.style.color = value > 0 ? colorGreen : colorRed
+        value > 0 ? option.classList.add('colorGreen') : option.classList.add('colorRed')
         
         showTotal.insertBefore(option, showTotal.firstChild)
     })
@@ -107,32 +105,27 @@ const refreshShowAll = () => {
 }
 
 const refreshBoxTotal = (value) => {
+    const boxTotal = document.getElementById('box-total')
     const total = document.querySelector('#box-total span')
     
     total.innerHTML = convertCoin(value)
-    
-    const totalStyle = total.style
-    const boxTotalStyle = document.getElementById('box-total').style
-    
 
     if (value > 0) {
-        totalStyle.color = colorGreen
-        boxTotalStyle.boxShadow = `-2px -2px ${colorGreen}`
+        total.classList.add('colorGreen')
+        boxTotal.classList.remove('shadowRed')
+        boxTotal.classList.add('shadowGreen')
     } else if (value < 0) {
-        totalStyle.color = colorRed
-        boxTotalStyle.boxShadow = `2px 2px ${colorRed}`
+        total.classList.add('colorRed')
+        boxTotal.classList.remove('shadowGreen')
+        boxTotal.classList.add('shadowRed')
     } else if (value == 0) {
-        totalStyle.color = '#fff'
-        boxTotalStyle.boxShadow = ''
+        total.classList.remove('colorGreen', 'colorRed')
+        boxTotal.classList.remove('shadowGreen', 'shadowRed')
     }
 }
 
 const convertDate = (date) =>  {
-    if (!date) {
-        return "00/00/0000"
-    } else {
-        return new Date(date).toLocaleDateString('pt-BR', {timeZone: 'UTC'});
-    }
+    return new Date(date).toLocaleDateString('pt-BR', {timeZone: 'UTC'});
 }
 
 const convertCoin = (value) =>  {

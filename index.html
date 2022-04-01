@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,23 +7,20 @@
     <title>Calculadora de Finanças</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
-<body>
+<body onload="enterKey()">
     <header>
         <h1>Calculadora de Finanças</h1>
     </header>
     <section>
-        <input id="value-input" class="input border" type="number" placeholder="Valor">
+        <input id="value-input" class="input border" type="number" placeholder="+Valor (Entrada) | (Saída) -Valor ">
         <input id="date-input" class="input border" type="date">
         <div id="add-tag">
-            <input id="tag-input" class="input border" type="text" placeholder="Novo Marcador">
+            <input id="tag-input" class="input border" type="text" placeholder="Criar Marcador -->">
             <input class="button border" type="button" value="+" onclick="addTag()">
         </div>
         <select id="tag-select" class="input border" blank="Selecionar Marcador"></select>
         <input class="button border" type="button" value="Adicionar" onclick="addFinance()">
-
         <select id="show-total" class="border" size="6" disabled></select>
-
         <div id="box-total" class="border">
             <span>R$ 0,00</span>
         </div>
@@ -34,5 +30,4 @@
     </footer>
 </body>
 <script src="script.js"></script>
-
 </html>

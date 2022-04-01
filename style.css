@@ -94,3 +94,19 @@ section {
     background: #0a0a0a;
     font-size: 20pt;
 }
+
+.colorGreen {
+    color: #26bf00;
+}
+
+.colorRed {
+    color: #e90000;
+}
+
+.shadowGreen {
+    box-shadow: -2px -2px #26bf00;
+}
+
+.shadowRed {
+    box-shadow: 2px 2px #e90000;
+}
